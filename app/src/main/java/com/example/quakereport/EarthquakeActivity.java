@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -29,21 +30,20 @@ public class EarthquakeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_earthquake);
 
         // Create a fake list of earthquake locations.
-        ArrayList<String> earthquakes = new ArrayList<>();
-        earthquakes.add("San Francisco");
-        earthquakes.add("London");
-        earthquakes.add("Tokyo");
-        earthquakes.add("Mexico City");
-        earthquakes.add("Moscow");
-        earthquakes.add("Rio de Janeiro");
-        earthquakes.add("Paris");
+        ArrayList<EarthquakeDataClass> earthquakes = new ArrayList<>();
+        earthquakes.add(new EarthquakeDataClass("7.2", "San Fransisco", "Feb 2, 2021"));
+        earthquakes.add(new EarthquakeDataClass("5.5", "London", "Jan 6, 2019"));
+        earthquakes.add(new EarthquakeDataClass("6.2", "Tokyo", "Feb 21, 2021"));
+        earthquakes.add(new EarthquakeDataClass("6.6", "Mexico City", "Mar 2, 2020"));
+        earthquakes.add(new EarthquakeDataClass("3.2", "Moscow", "Feb 22, 1921"));
+        earthquakes.add(new EarthquakeDataClass("7.2", "Rio de janeiro", "Feb 2, 2021"));
+        earthquakes.add(new EarthquakeDataClass("7.2", "Paris", "Feb 2, 2021"));
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
         // Create a new {@link ArrayAdapter} of earthquakes
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, earthquakes);
+        DataAdapter adapter = new DataAdapter(this, earthquakes);
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
