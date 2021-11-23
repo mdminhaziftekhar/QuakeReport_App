@@ -3,18 +3,18 @@ package com.example.quakereport;
 public class EarthquakeDataClass {
     private String mMagnitude;
     private String mLocation;
-    private String mDate;
+    private long timeInMiliSecond;
 
     public EarthquakeDataClass(){
         mMagnitude = "0.0";
         mLocation = "Null";
-        mDate = "Feb 0, 0000";
+        timeInMiliSecond = 0L;
     }
 
-    public  EarthquakeDataClass(String mMagnitude, String mLocation, String mDate){
+    public  EarthquakeDataClass(String mMagnitude, String mLocation, long timeInMiliSecond){
         this.mMagnitude = mMagnitude;
         this.mLocation = mLocation;
-        this.mDate = mDate;
+        this.timeInMiliSecond = timeInMiliSecond;
     }
 
     public String getmMagnitude() {
@@ -25,7 +25,7 @@ public class EarthquakeDataClass {
         return mLocation;
     }
 
-    public String getmDate() {
-        return mDate;
+    public long getTimeInMiliSecond() {
+        return timeInMiliSecond;
     }
 }
