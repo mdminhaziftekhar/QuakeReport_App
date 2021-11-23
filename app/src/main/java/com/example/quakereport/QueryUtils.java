@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,10 +58,14 @@ public class QueryUtils {
             for(int i = 0; i<features.length(); i++){
                 JSONObject jsonObject = features.getJSONObject(i);
                 JSONObject properties = jsonObject.getJSONObject("properties");
-                String mag = properties.optString("mag");
+                Double mag1 = properties.optDouble("mag");
                 String place = properties.optString("place");
 
                 timeInMilliSeconds = properties.optLong("time");
+
+                //decimal formatting for magnitude data
+                DecimalFormat formatter = new DecimalFormat("0.00");
+                String mag = formatter.format(mag1);
 
                 //The way I did it
 
