@@ -1,5 +1,7 @@
 package com.example.quakereport;
 
+import androidx.core.content.ContextCompat;
+
 public class EarthquakeDataClass {
     private String mMagnitude;
     private String mLocation;
@@ -28,4 +30,6 @@ public class EarthquakeDataClass {
     public long getTimeInMiliSecond() {
         return timeInMiliSecond;
     }
+
+
 }
