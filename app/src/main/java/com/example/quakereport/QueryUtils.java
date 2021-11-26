@@ -11,9 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class QueryUtils {
 
@@ -86,5 +84,31 @@ public class QueryUtils {
 
         //Return the list of earthquakes
         return  earthquakes;
+    }
+
+    public static ArrayList<String> extractURL(){
+        ArrayList<String> url = new ArrayList<>();
+
+        try{
+            JSONObject root = new JSONObject(SAMPLE_JSON_RESPONSE);
+
+            JSONArray features = root.getJSONArray("features");
+
+            for(int i = 0; i<features.length(); i++){
+                JSONObject jsonObject = features.getJSONObject(i);
+                JSONObject properties = jsonObject.getJSONObject("properties");
+                String link = properties.optString("url");
+
+                url.add(link);
+            }
+
+        } catch (JSONException e){
+            // If an error is thrown when executing any of the above statements in the "try" block,
+            // catch the exception here, so the app doesn't crash. Print a log message
+            // with the message from the exception.
+            Log.e("QueryUtils", "Problem parsing the earhtquake JSON results", e);
+        }
+
+        return url;
     }
 }
