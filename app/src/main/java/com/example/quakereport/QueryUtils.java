@@ -107,7 +107,7 @@ public class QueryUtils {
     }
 
     /**
-     * Return a list of {Earthquake} objects that has been built up from
+     * Return a list of {@link EarthQuake} objects that has been built up from
      * parsing a JSON response.
      */
     public static List<EarthquakeDataClass> extractFeatureFromJson(String earthquakeJSON){
