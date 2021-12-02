@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
@@ -44,6 +45,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
 
     //Adapter for the list of earthquakes
     private DataAdapter mAdapter;
+
+    private TextView mEmptyTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
 
         //Find a reference to the {@link ListView}
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        //emptyview
+        mEmptyTextView = (TextView) findViewById(R.id.EmptyText);
+        earthquakeListView.setEmptyView(mEmptyTextView);
 
         //Create a new adapter that takes empty list of earthquake
         mAdapter = new DataAdapter(this, new ArrayList<EarthquakeDataClass>());
@@ -82,7 +89,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
         // because this activity implements the LoaderCallbacks interface).
         LoaderManager.getInstance(this).initLoader(EARTHQUAKE_LOADER_ID, null, this);
-        
+
     }
 
     @NonNull
@@ -101,6 +108,10 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         if(data != null && !data.isEmpty()){
             mAdapter.addAll(data);
         }
+
+        //Set empty state text to display
+        mEmptyTextView.setText("No earthquake data found :( ");
+
     }
 
     @Override
