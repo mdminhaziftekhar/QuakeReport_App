@@ -15,10 +15,13 @@ import androidx.core.content.ContextCompat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class DataAdapter extends ArrayAdapter<EarthquakeDataClass> {
 
-    public DataAdapter(@NonNull Context context, ArrayList<EarthquakeDataClass> earthquakes) {
+    private static final String LOCATION_SEPARATOR = " of ";
+
+    public DataAdapter(@NonNull Context context, List<EarthquakeDataClass> earthquakes) {
         super(context, 0, earthquakes);
     }
 
@@ -30,7 +33,7 @@ public class DataAdapter extends ArrayAdapter<EarthquakeDataClass> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.newlist, parent, false);
         }
 
-        final EarthquakeDataClass currentData = getItem(position);
+        EarthquakeDataClass currentData = getItem(position);
 
         TextView mag = (TextView) listItemView.findViewById(R.id.mag);
         TextView loc = (TextView) listItemView.findViewById(R.id.location);
@@ -38,28 +41,24 @@ public class DataAdapter extends ArrayAdapter<EarthquakeDataClass> {
         TextView date = (TextView) listItemView.findViewById(R.id.time);
         TextView time = (TextView) listItemView.findViewById(R.id.time2);
 
-        mag.setText(currentData.getmMagnitude());
+        String mag1= String.valueOf(currentData.getmMagnitude());
+        mag.setText(mag1);
 
         //work with location
-        String s = currentData.getmLocation();
-        String location1="", location2="";
-        if(s.contains("of") == true){
-            int i = s.indexOf("of");
-            int j = 0;
-            for(j = 0; j<i+2; j++){
-                location1+=s.charAt(j);
-            }
-            for(j=i+2; j<s.length(); j++){
-                location2+=s.charAt(j);
-            }
-        }else{
-            location1+="Near the";
-            location2+=s;
-        }
+        String primaryLocation, locationOffset;
+        String OriginalLocation = currentData.getmLocation();
 
-        //now set text in textview of locations
-        loc.setText(location1);
-        loc2.setText(location2);
+        if(OriginalLocation.contains(LOCATION_SEPARATOR)){
+            String[] parts = OriginalLocation.split(LOCATION_SEPARATOR);
+            locationOffset = parts[0] + LOCATION_SEPARATOR;
+
+            primaryLocation = parts[1];
+        } else{
+            locationOffset = "Near the ";
+            primaryLocation = OriginalLocation;
+        }
+        loc.setText(locationOffset);
+        loc2.setText(primaryLocation);
 
         //Create a new Date object from the time in milliseconds
         Date dateObject = new Date(currentData.getTimeInMiliSecond());
@@ -83,7 +82,7 @@ public class DataAdapter extends ArrayAdapter<EarthquakeDataClass> {
         GradientDrawable magnitudeCircle = (GradientDrawable) mag.getBackground();
 
         // Get the appropriate background color based on the current earthquake magnitude
-        int magnitudeColor = getMagnitudeColor(currentData.getmMagnitude());
+        int magnitudeColor = getMagnitudeColor(mag1);
 
         // Set the color on the magnitude circle
         magnitudeCircle.setColor(magnitudeColor);

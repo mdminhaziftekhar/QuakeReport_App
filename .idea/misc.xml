@@ -7,7 +7,8 @@
         <entry key="..\:/Earthquake_Report app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22447916666666667" />
         <entry key="..\:/Earthquake_Report app/app/src/main/res/drawable/magnitude_circle.xml" value="0.1" />
         <entry key="..\:/Earthquake_Report app/app/src/main/res/layout/newlist.xml" value="0.34" />
-        <entry key="app/src/main/res/layout/newlist.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/activity_earthquake.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/newlist.xml" value="0.29906542056074764" />
       </map>
     </option>
   </component>

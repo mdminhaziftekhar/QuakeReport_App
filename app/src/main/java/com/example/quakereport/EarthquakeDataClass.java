@@ -3,23 +3,27 @@ package com.example.quakereport;
 import androidx.core.content.ContextCompat;
 
 public class EarthquakeDataClass {
-    private String mMagnitude;
+    private double mMagnitude;
     private String mLocation;
     private long timeInMiliSecond;
+    private String url;
+
 
     public EarthquakeDataClass(){
-        mMagnitude = "0.0";
+        mMagnitude = 0.0;
         mLocation = "Null";
         timeInMiliSecond = 0L;
+        url = "null";
     }
 
-    public  EarthquakeDataClass(String mMagnitude, String mLocation, long timeInMiliSecond){
+    public  EarthquakeDataClass(double mMagnitude, String mLocation, long timeInMiliSecond, String url){
         this.mMagnitude = mMagnitude;
         this.mLocation = mLocation;
         this.timeInMiliSecond = timeInMiliSecond;
+        this.url = url;
     }
 
-    public String getmMagnitude() {
+    public double getmMagnitude() {
         return mMagnitude;
     }
 
@@ -31,5 +35,7 @@ public class EarthquakeDataClass {
         return timeInMiliSecond;
     }
 
-
+    public String getUrl() {
+        return url;
+    }
 }
