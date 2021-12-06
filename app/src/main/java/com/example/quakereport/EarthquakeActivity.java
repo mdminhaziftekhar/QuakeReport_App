@@ -1,6 +1,8 @@
 package com.example.quakereport;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.content.AsyncTaskLoader;
@@ -112,8 +114,26 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
             mAdapter.addAll(data);
         }
 
-        //Set empty state text to display
-        mEmptyTextView.setText("No earthquake data found :( ");
+        //check if network was connected or not
+        ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if(activeNetwork == null){
+
+            //state that there is no internet connection
+            mEmptyTextView.setText("No Internet Connection found :( ");
+
+        } else if(activeNetwork != null && activeNetwork.isConnected()){
+
+            //There is internet but the list is still empty
+            mEmptyTextView.setText("No earthquake data found :( ");
+
+        }
+        else{
+
+            //Set empty state text to display
+           mEmptyTextView.setText("No earthquake data found :( ");
+
+        }
 
     }
 
