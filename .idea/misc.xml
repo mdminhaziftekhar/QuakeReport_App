@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Documents/Android Projects/QuakeReport_App-main/app/src/main/res/drawable/magnitude_circle.xml" value="0.2" />
+        <entry key="..\:/Documents/Android Projects/QuakeReport_App-main/app/src/main/res/drawable/settings.xml" value="0.108" />
+        <entry key="..\:/Documents/Android Projects/QuakeReport_App-main/app/src/main/res/layout/activity_earthquake.xml" value="0.1802536231884058" />
+        <entry key="..\:/Documents/Android Projects/QuakeReport_App-main/app/src/main/res/layout/newlist.xml" value="0.1802536231884058" />
+        <entry key="..\:/Documents/Android Projects/QuakeReport_App-main/app/src/main/res/layout/settings_activity.xml" value="0.5" />
+        <entry key="..\:/Documents/Android Projects/QuakeReport_App-main/app/src/main/res/menu/main.xml" value="0.1" />
+        <entry key="..\:/Documents/Android Projects/QuakeReport_App-main/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Earthquake_Report app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22447916666666667" />
+        <entry key="..\:/Earthquake_Report app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22447916666666667" />
+        <entry key="..\:/Earthquake_Report app/app/src/main/res/drawable/magnitude_circle.xml" value="0.1" />
+        <entry key="..\:/Earthquake_Report app/app/src/main/res/layout/newlist.xml" value="0.34" />
+        <entry key="..\:/QuakeReport_App-main/app/src/main/res/layout/activity_earthquake.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_earthquake.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/newlist.xml" value="0.29906542056074764" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
